@@ -14,6 +14,12 @@ cd $SETUP_DIR
 # install python libraries
 sudo apt-get -y install python-numpy python-dev python-wheel python-mock python-matplotlib python-pip
 
+# Update nvidia drivers to the latest versions
+sudo apt-get purge nvidia*
+sudo add-apt-repository -y ppa:graphics-drivers
+sudo apt-get -y update
+sudo apt-get -y install nvidia-390
+
 # install cuda drivers
 if [ ! -f "cuda_8.0.61_375.26_linux-run" ]; then 
 	wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run

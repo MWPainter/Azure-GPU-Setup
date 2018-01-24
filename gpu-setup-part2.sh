@@ -14,8 +14,8 @@ cd $SETUP_DIR
 
 # install cudnn
 SETUP_ABS_DIR=`realpath $SETUP_DIR` 
-if [ ! -f "cudnn-8.0-linux-x64-v5.1.tgz" ]; then
-    echo "You need to download cudnn-8.0 manually this can be downloaded from https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz you will need to create a NVIDIA Account! Specifically, place it at: $SETUP_ABS_DIR/cudnn-8.0-linux-x64-v5.1.tgz"
+if [ ! -f "cudnn-8.0-linux-x64-v6.0.tgz" ]; then
+    echo "You need to download cudnn-6.0 manually this can be downloaded from https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v6/prod/8.0_20170307/cudnn-8.0-linux-x64-v6.0-tgz you will need to create a NVIDIA Account! Specifically, place it at: $SETUP_ABS_DIR/cudnn-8.0-linux-x64-v6.0.tgz"
     exit
 fi
 
@@ -28,7 +28,7 @@ fi
 sudo sh cuda_8.0.61_375.26_linux-run --silent --verbose --driver --toolkit
 
 echo "Uncompressing cudnn"
-tar xzvf cudnn-8.0-linux-x64-v5.1.tgz
+tar xzvf cudnn-8.0-linux-x64-v6.0.tgz
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda/include/
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64/
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
