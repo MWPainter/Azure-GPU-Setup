@@ -5,7 +5,7 @@
 #	exit
 #fi
 
-SETUP_DIR="$HOME/gpu-setup"
+SETUP_DIR="$( dirname "$0" )"
 if [ ! -d $SETUP_DIR ]; then
 	echo "Setup directory not found. Did you run part 1?"
 	exit
@@ -13,8 +13,9 @@ fi
 cd $SETUP_DIR
 
 # install cudnn
+SETUP_ABS_DIR=`realpath $SETUP_DIR` 
 if [ ! -f "cudnn-8.0-linux-x64-v5.1.tgz" ]; then
-    echo "You need to download cudnn-8.0 manually this can be downloaded from https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz you will need to create a NVIDIA Account! Specifically, place it at: $SETUP_DIR/cudnn-8.0-linux-x64-v5.1.tgz"
+    echo "You need to download cudnn-8.0 manually this can be downloaded from https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz you will need to create a NVIDIA Account! Specifically, place it at: $SETUP_ABS_DIR/cudnn-8.0-linux-x64-v5.1.tgz"
     exit
 fi
 
@@ -56,7 +57,7 @@ sudo apt-get -y install libcupti-dev
 sudo pip install --upgrade pip
 
 # install tensorflow 1.0
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.1-cp27-none-linux_x86_64.whl
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.4.1-cp27-none-linux_x86_64.whl
 
 sudo pip install --upgrade $TF_BINARY_URL
 

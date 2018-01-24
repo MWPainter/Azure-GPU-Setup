@@ -5,7 +5,9 @@
 #	exit
 #fi
 
-SETUP_DIR="$HOME/gpu-setup"
+# Make a directory as a workspace
+# dirname "$0" gets the directory that this file is in
+SETUP_DIR="$( dirname "$0" )"
 mkdir -p $SETUP_DIR
 cd $SETUP_DIR
 
