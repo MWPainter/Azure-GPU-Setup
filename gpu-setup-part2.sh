@@ -61,5 +61,14 @@ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorf
 
 sudo pip install --upgrade $TF_BINARY_URL
 
+# Update nvidia drivers to the latest versions
+sudo apt-get purge nvidia*
+sudo add-apt-repository -y ppa:graphics-drivers
+sudo apt-get -y update
+sudo apt-get -y install nvidia-390
+
 echo "Script done"
+
+# Nvidia drivers also need restarting to run
+sudo reboot
 
