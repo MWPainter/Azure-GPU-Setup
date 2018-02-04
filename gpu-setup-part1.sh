@@ -11,6 +11,9 @@ SETUP_DIR="$( dirname "$0" )"
 mkdir -p $SETUP_DIR
 cd $SETUP_DIR
 
+# Update apt-get
+sudo apt-get -y update
+
 # install python libraries
 sudo apt-get -y install python-numpy python-dev python-wheel python-mock python-matplotlib python-pip
 
